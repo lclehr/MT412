@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Dopetrope by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <section id="header">
+
+        <!-- Nav -->
+        <nav id="nav" style="margin-bottom: 20px;">
+            <ul>
+              <li class="current"><a href="index.html">Home</a></li>
+              <li>
+                <a href="#">Projects</a>
+                <ul>
+                  <li><a href="LoanApplication.html">Loan Application with ANN</a>
+                  <li><a href="Apple_Quality.html">Apple Quality</a></li>
+                  <li><a href="CA259-1.html">Marketing Analytics - Personalities</a></li>
+                  <li><a href="Financial_Projections.html">Amtagio Financial Analysis</a></li>
+                  <li><a href="OECD.html">OECD Better Life - Power BI</a>
+            </li></li>
+                </ul>
+              </li>
+              <li><a href="#">Content</a>
+          <ul>
+            <li><a href="Blogposts.html">Blog Posts</a></li>
+            <li><a href="Media.html">Media</a></li>
+          </ul></li>
+              <li><a href="#">About me</a>
+          <ul>
+            <li><a href="bio.html">Biography</a></li>
+            <li><a href="Volunteer.html">More about me</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+          </ul>
+            </li>
+          </ul>
+          </nav>
+
+      <!-- Main -->
+      <section id="main" style="text-align: left;">
+        <div class="container">
+          <!-- Content -->
+          <article class="box post">
+            <header>
+              <h1>
+                OECD Better Life Index Data - Power BI Report
+              </h1>
+              <p>
+                A Global Perspective on Ecomonics and Well-Being
+              </p>
+            </header>
+            <section>
+                <header>
+                    <h2>
+                        Aim of the project
+                    </h2>
+                </header>    
+              <p>
+                The project aimed to utilise the OECD data set “OECD Better Life Index 2017” to analyse and visualise a range of economic, employment, education, and quality of life indicators across member countries using Power BI. The project sought to provide intuitive and accessible visualisations to facilitate an easy comparison and in-depth understanding of these indicators. The report further aimed to highlight differences and correlations among the countries and indicators effectively. Various visual tools such as world maps, bar charts, and regression plots were employed for an intuitive interpretation. 
+              </p>
+            </section>
+            <section>
+                <header>
+                    <h2>
+                        Data used 
+                    </h2>
+                </header>
+                <p>
+                    The data for the Power BI report was obtained from the OECD. It consists of 39 rows corresponding to the countries covered in the data set, 31 columns corresponding to the names of the countries, and 30 indicators. The data was chosen for its meticulous quality. Several aspects ensure that the data set is of extremely high quality. First, there are no missing values and duplicates, making it extremely easy to work with because no data cleaning is required. Some data points seemed to be outliers but were not removed because they represent the actual values for the specific countries. However, they were validated again by checking different sources to ensure we could draw the correct conclusions. Furthermore, this data set's quality is excellent because, in the original source, a great deal of detail is provided on how the data was collected and by which authority. Furthermore, because the data is aggregate data only and no personal data, no GDPR concerns arise. The same goes for the usage of the data. As it is data published by a reputable international agency, the data is free to anyone, making it possible for everyone to recreate the analyses conducted.
+                </p>
+            </section>
+            <section>
+                <header>
+                    <h2>
+                        Report
+                    </h2>
+                </header>       
+              <img
+                src="images/bi-overview.png"
+                alt="Quality Prediction"
+                style="width: 700px; height: 400px;"
+              />
+              <p>
+                <strong> Overview Page</strong> <br>
+                The Power BI report features a panel on the left hand side that can be used to switch between the different indicator groups. On the overview page a worldmap displays basic indicators for each of the OECD members. The indicators can be switched by clicking the top buttons. The world map view with the bubble indicators was chosen to give the viewer an intuitive interpretation regarding the selected indicator and the countries.
+              </p>
+              <img
+              src="images/bi-econ.png"
+              alt="Quality Prediction"
+              style="width: 700px; height: 400px;"
+            />
+              <p>
+                <strong> Economis Page </strong> <br>
+                The economics section features a bar chart for each economic indicator, accompanied by buttons at the top to switch between indicators. These bar charts are intuitively designed to arrange the data in descending order for efficient comparison across various countries. To enhance the viewers understanding, essential descriptive statistics are displayed, offering additional context regarding the selected indicator.
+              </p>
+              <img
+              src="images/bi-employment.png"
+              alt="Quality Prediction"
+              style="width: 700px; height: 400px;"
+            />
+              <p>
+                <strong> Employment and Education Page </strong> <br>
+                For the employment and education section, there is a split view with bar charts in place. The left side covers employment and the right side is devoted to education. Below both charts is a drop down menu that can be utilised to select a measure for employment or education. At the top region details as well as the status of economic development an block affiliation can be used to filter and give a custom overview. Additionally descriptive statistics at the top provide  further information to get a better overview. Here a bar chart was chosen again, as a single number per country needs to be presented and the bar chart is an easy way to directly compare the countries performance regarding the indicator.
+              </p>
+              <img
+              src="images/bi-lifequality.png"
+              alt="Quality Prediction"
+              style="width: 700px; height: 400px;"
+            />
+              <p>
+                <strong> Quality of Life Page </strong> <br>
+                Regarding the Quality of Life indicators the report page is split horizontally. The top half hosts the graphs regarding the safety indicators wheras the lower half of the page is contains several tables with information about Health and Environment indicators. At the top there are several buttons. The buttons on the left hand side allow the user to switch between the top 5 and the worst five countries, whereas the three buttons on the right enable users to filter for developed or developing countries if they wish to examine these groups separately. For safety two graphs were chosen, to better visualise how far apart the top five values in that category are. To keep the overall report visually interesting here single data points were used instead of bar charts. For the Health and environment section tables were chosen instead of a chart for the visualisation due to the tight space on the report, which would not have allowed enough vertical space to construct easily readable graphs.
+              </p>
+              <img
+              src="images/bi-regressions.png"
+              alt="Quality Prediction"
+              style="width: 700px; height: 400px;"
+            />
+              <p>
+                <strong> Regressions Page </strong> <br>
+                This page holds correlation analyses. Initially to get a good overview, a correlation matrix was calculated in Python. Based on this matrix, two variables - Life expectancy and personal earnings - were selected because of their multitude of correlations. To visualise these correlations a python script was used within Power BI to create regression plots. Regression plots were chosesn, as they are very useful to show how the variables are connected, in which direction the correlation goes and how strong it is. 
+              </p>
+              <p>
+                One of the key take aways from the regressions is the enourmous impact that economic development has on other measures of wellbeing. This highlights the importance for economic development in poorer countries, whilst not infringing on other factors of life quality such as a clean environment.
+              </p>
+            </section>
+            <ul class="actions">
+                <li>
+                  <a
+                    href="https://github.com/lclehr/OECD_power_bi"
+                    class="button alt"
+                    >Link to Github</a>
+                </li>
+              </ul>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

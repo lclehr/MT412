@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Marketing Analytics - Personalities</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Include the Prism.js Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
+    <!-- Include the Prism.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <!-- Include the Python language plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+    <!-- Include the R language plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-r.min.js"></script>
+  
+  </head>
+  <body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <section id="header">
+
+        <!-- Nav -->
+        <nav id="nav" style="margin-bottom: 20px;">
+          <ul>
+            <li class="current"><a href="index.html">Home</a></li>
+            <li>
+              <a href="#">Projects</a>
+              <ul>
+                <li><a href="LoanApplication.html">Loan Application with ANN</a>
+                <li><a href="Apple_Quality.html">Apple Quality</a></li>
+                <li><a href="CA259-1.html">Marketing Analytics - Personalities</a></li>
+                <li><a href="Financial_Projections.html">Amtagio Financial Analysis</a></li>
+                <li><a href="OECD.html">OECD Better Life - Power BI</a>
+          </li></li>
+              </ul>
+            </li>
+            <li><a href="#">Content</a>
+        <ul>
+          <li><a href="Blogposts.html">Blog Posts</a></li>
+          <li><a href="Media.html">Media</a></li>
+        </ul></li>
+            <li><a href="#">About me</a>
+        <ul>
+          <li><a href="bio.html">Biography</a></li>
+          <li><a href="Volunteer.html">More about me</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+          </li>
+        </ul>
+        </nav>
+
+      <!-- Main -->
+      <section id="main" style="text-align: left;">
+        <div class="container">
+          <!-- Content -->
+          <article class="box post">
+            <header>
+              <h1>
+                Marketing Analytics - Personalities
+              </h1>
+              <p>
+                Exploratory Data Analysis
+              </p>
+            </header>
+            <section>
+              <p>
+                This analysis was conducted as part of the CA259 module at DCU Business School. It consists of two tables, one with the demographics of the Students and one with their respective personality scores. Both tables are linked by the column ‘Last four digits of your mobile (0000 to 9999)’
+                <br>
+                The tasks of the assignment were:
+                <ul>
+                  <li>impute missing values</li>
+                  <li>join the two data sets</li>
+                  <li>find a story among the data</li>
+                </ul> 
+              </p>
+            </section>
+            <section>
+              <header>
+                <h2>Data</h2>
+              </header>
+              <p>
+                The task involved the two data sets demographics and personalities. The data was sampled by asking students to complete a questionnaire with fictitious data for GDPR reasons.
+              </p>
+            </section>
+            <section>
+              <header>
+                <h2>Imputing the missing values</h2>
+                <br>
+                <h3>First missing value</h3>
+              </header>  
+              <p>
+                First the missing value in the column Daily travel to DCU will be addressed. Because the only column that definitely is related with the Daily travel to DCU column is the Old Dublin postcode, both of these columns were saved into a separate data frame. Then this data frame was grouped by the postcode, to display the mean daily travel per postcode. To get a better understanding of the distribution of the variable, also the Standard Diviation and the max value were calculated.
+                <br>
+                The missing value for the daily travel to DCU was set to 11.6, the average of the postcode 0, which represents people living outside of Dublin. Even though the range is very high and the distribution is very wide, no outliers were deleted, as this would have left too few datapoints.
+              </p>
+            </section>
+            <section>
+              <header>
+                <h3>Second missing value</h3>
+              </header>
+              <p>
+                The second missing value to address is the column CAO Points, the Irish university entrance exam. To impute the missing value of this column a linear regression model was chosen.  Three different approaches were tried and for each the accuracy was returned. The approach that yielded the best accuracy was to use only the Age in years column and the Average year 1 exam result column, but the accuracy returned was still below 10%.
+                <br>
+                Even though the predicitve power of the linear regression is poor, this was the only sensible approach for this assignment, as we were required to impute values. The correlation and predictive power probably are so low because half of the course are not from Ireland and just made up a value in the questionnaire.
+              </p>
+            </section>
+            <section> 
+              <header>
+                <h3>Third missing value</h3>
+              </header>
+              <p>
+                The third missing value is located in the Average year 1 exam result column. Learning from the previous regression that the only decent correlation is between this column and CAO Points and Age in years only those columns were chosen for the regression model. Even though the predicitve power of the linear regression is poor, this was the only sensible approach for this assignment, as we were required to impute values.
+              </p>
+            <section> 
+              <header>
+                <h3>Fourth missing value</h3>
+              </header>
+              <p>
+                The fourth missing value is in the column Seat Row. A linear regression was tried out to see if a relationship between Seat Row and other columns could be established. Only a negative accuracy could be reached and no real logic to the variable could be observed. Therefore a randomly generated number was chosen.
+              </p>
+            </section>
+            <section>
+              <header>
+                <h3>Fifth missing value</h3>
+              </header>
+              <p>
+                The fifth missing value was in the Age in years column. As the generally observed correlation relating to age were quite low, I decided to use the median to fill in the value. The median was chosen over the avarage, as there were few outliers that were so far away from the mean, that it was pulled over th 75th percentile. Therefore themedian seemed more representative.
+              </p>
+            </section>
+            <section>
+              <header>
+                <h2>Handling of Duplicated values</h2>
+              </header>
+              <p>
+                After loading the second data set holding personality types for the class, a joined between the two datasets should be performed. To get a clean merger of the two datasets, dupliactes need to be identified and removed before performing a join.For the 3 duplicates found, the first instance was kept whereas the second was discarded.
+              </p>
+            </section>
+            <section>
+              <header>
+                <h2>Merging the Datasets</h2>
+              </header>
+              <p>
+                To merge the two datasets, an inner join is performed on the Last 4 digits of your mobile column. An inner join was chosen, as for the following analysis only rows that have complete data from both datasets are relevant. However, this leaves us with only 65 rows remaining! Additionally a second check for missing values was perfomed to ensure a complete combined dataset.
+              </p>
+            </section>
+            <section>
+              <header>
+                <h2>Feature Engineering</h2>
+                <br>
+                <h3>Creating a new feature out of two others</h3>
+              </header>
+              <p>
+                As both the number of older and younger siblings was provided in the dataset, it made sense to calculate the number of total siblings as well. This was simply done by adding the two columns together.
+              </p>
+            </section>
+            <section>
+              <header>
+                <h3>Scale transformation and encoding</h3>
+              </header>
+              <p>
+                Hair and eye color are categorical variables, which makes it hard to perform analysis on them. However, if one thinks of hair and eye color as different levels of darkness the variables can be put into a meaningful order from light to dark. This enables one to perform linear regression on the variable. The following ranking was assumed and applied via encoding dictionaries. This is obviously a simplification and done more to show the concept then to perform an actually valid analysis.
+                <br>
+                Below the encoding for the hair color is noted from light to dark.
+                <ol>
+                  <li>Blonde</li>
+                  <li>Red</li>
+                  <li>Brown</li>
+                  <li>Black</li>
+                </ol>
+                Below the encoding for the eye color is noted from light to dark.
+                <ol>
+                  <li>Blue</li>
+                  <li>Green</li>
+                  <li>Brown</li>
+                </ol>
+              </p>
+            </section>
+            <section>
+              <header>
+                <h2>Data Analysis</h2>
+                <br>
+                <h3>Analysis of personality types based on gender</h3>
+              </header>
+              <p>
+                An obvious possible connection to explore was to check if certain personality traits are more pronounced for one gender than for the other. To get a first view at the distribution of the personality traits, they were grouped by gender with the mean as an aggregate function.
+                <br>
+                To see if the observed differences of the mean were statistically significant a series of independent two sample t-tests were used. The following tests were conducted: 
+                <ul>
+                  <li>H0: Men are not less extrovert than women.</li>
+                  <li>H0: Men are not less intuative than women. </li>
+                  <li>H0: Men are not more thinking than women. </li>
+                  <li>H0: Men are not less judging than women. </li>
+                  <li>H0: Men are not more assertive than women.</li>
+                </ul>
+                Since all the t-tests were not significant to a confidence level of 95%, we were not able to reject the Nullhypothesis. Therefore the differences on the mean seem to occur only by chance rather than by a difference in the population.
+              </p>
+            </section>
+            <section>
+              <header>
+                <h3>Personality types by star sign</h3>
+              </header>
+              <p>
+                Another obvious idea was to examine if the different star signs have different personality traits assicoiated with them. For the start the average for each personality trait per starsign was calculated. The decision was made to exclude Cancer from the analysis, because only one data point is associated witht the star sign.
+                <br>
+                Following, always the star sign that scored highest on average on a trait was tested against the star sign that scored lowest in the same trait. Here an independent two sample t-test was employed for each of the traits. The following tests were conducted:
+                <table border="1">
+                  <tr>
+                    <th>Personality Trait</th>
+                    <th>Star sign 1</th>
+                    <th>Mean</th>
+                    <th>Star sign 2</th>
+                    <th>Mean</th>
+                    <th>H0</th>
+                    <th>P-Value</th>
+                    <th>Result</th>
+                  </tr>
+                  <tr>
+                    <td>EXTRAVERSION</td>
+                    <td>Taurus</td>
+                    <td>62.8</td>
+                    <td>Libra</td>
+                    <td>38.2</td>
+                    <td>Taurus are not more extravert on average than Libra</td>
+                    <td>0.019</td>
+                    <td>H0 rejected; Taurus are on average more extravert than Libra</td>
+                  </tr>
+                  <tr>
+                    <td>INTUITION</td>
+                    <td>Pisces</td>
+                    <td>68.8</td>
+                    <td>Libra</td>
+                    <td>40.8</td>
+                    <td>Pisces are not more intuitive than Libra on average</td>
+                    <td>0.074</td>
+                    <td>H0 not rejected</td>
+                  </tr>
+                  <tr>
+                    <td>THINKING</td>
+                    <td>Gemini</td>
+                    <td>54.1</td>
+                    <td>Sagittarius</td>
+                    <td>39.8</td>
+                    <td>Gemini are not more thinking than Sagittarius on average</td>
+                    <td>0.022</td>
+                    <td>H0 rejected; Gemini are on average more thinking than Sagittarius</td>
+                  </tr>
+                  <tr>
+                    <td>JUDGING</td>
+                    <td>Capricorn</td>
+                    <td>69.8</td>
+                    <td>Libra</td>
+                    <td>44.2</td>
+                    <td>Capricorn are not on average more judging than Libra</td>
+                    <td>0.058</td>
+                    <td>H0 not rejected</td>
+                  </tr>
+                  <tr>
+                    <td>ASSERTIVE</td>
+                    <td>Sagittarius</td>
+                    <td>55.0</td>
+                    <td>Virgo</td>
+                    <td>33.3</td>
+                    <td>Sagittarius are not more assertive on average than Virgos</td>
+                    <td>0.117</td>
+                    <td>H0 rejected; Sagittarius are more assertive on average than Virgos</td>
+                  </tr>
+                </table>
+                Therefore the following statistically sginficant (to a 95% confidence interval) conclusions emerge from this analysis:
+                <ul>
+                  <li>Taurus are on average more extravert than Libra.</li>
+                  <li>Gemini are on average more thinking than Sagittarius.</li>
+                  <li>Sagittarius are more assertive on average than Virgos.</li>
+                </ul>
+              </p>
+            </section>
+            <section>
+              <header>
+                <h3>Analysis of Correlations</h3>
+              </header>
+              <p>
+                For a better understanding of the dataset and potential regression analysis, the correlations were explored further. For this a correlation heatmap was created as well as a list that holds all significant correlations of more than 60% in either direction.
+                <br>
+                To see if the observed differences of the mean were statistically significant a series of independent two sample t-tests were used. The following tests were conducted: 
+                <ul>
+                  <li>H0: Men are not less extrovert than women.</li>
+                  <li>H0: Men are not less intuative than women. </li>
+                  <li>H0: Men are not more thinking than women. </li>
+                  <li>H0: Men are not less judging than women. </li>
+                  <li>H0: Men are not more assertive than women.</li>
+                </ul>
+                Since all the t-tests were not significant to a confidence level of 95%, we were not able to reject the Nullhypothesis. Therefore the differences on the mean seem to occur only by chance rather than by a difference in the population.
+              </p>
+              <img
+                src="images/ca259-1-corrheat.png"
+                alt="Quality Prediction"
+                style="width: 900px; height: auto;"
+              />
+            </section>
+            <section>
+              <header>
+                <h3>Regression Analysis</h3>
+              </header>
+              <p>
+                As can be seen the strongest correlations in the data set all are among the Height, Weight and Shoe Size variable. Therefore a linear regression was conducted with Height as the dependent variable. An accuracy score of 88% was reached with the linear regression.
+                <br>
+                Additionally a linear regression was performed on the Hair Darkness and Eye Darkness, with the Eye Darkness being the dependent variable. Despite expecatations the accuracy score was very low with only 1.3% accurcy.
+              </p>
+            </section>
+            <section>
+              <header>
+                <h2>Conclusion</h2>
+              </header>
+              <p>
+                Overall the result was, that the dataset only had very weak correlations and was only poorly suited for data analytics. This can be attributed to the fact that the class was encouraged to provide fake and made up data. Furthermore, some of the questions were specific to Irish nationals but half the course was comprised of international students, thus further leading to random data being entered in the survey. 
+              </p>
+            </section>
+            <ul class="actions">
+              <li>
+                <a
+                  href="https://github.com/lclehr/ca259-1"
+                  class="button alt"
+                  >Link to Github</a
+                >
+              </li>
+            </ul>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

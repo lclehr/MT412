@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Loan Applications with ANN</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Include the Prism.js Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
+    <!-- Include the Prism.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <!-- Include the Python language plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+    <!-- Include the R language plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-r.min.js"></script>
+  
+  </head>
+  <body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <section id="header">
+
+        <!-- Nav -->
+        <nav id="nav" style="margin-bottom: 20px;">
+          <ul>
+            <li class="current"><a href="index.html">Home</a></li>
+            <li>
+              <a href="#">Projects</a>
+              <ul>
+                <li><a href="LoanApplication.html">Loan Application with ANN</a>
+                <li><a href="Apple_Quality.html">Apple Quality</a></li>
+                <li><a href="CA259-1.html">Marketing Analytics - Personalities</a></li>
+                <li><a href="Financial_Projections.html">Amtagio Financial Analysis</a></li>
+                <li><a href="OECD.html">OECD Better Life - Power BI</a>
+          </li></li>
+              </ul>
+            </li>
+            <li><a href="#">Content</a>
+        <ul>
+          <li><a href="Blogposts.html">Blog Posts</a></li>
+          <li><a href="Media.html">Media</a></li>
+        </ul></li>
+            <li><a href="#">About me</a>
+        <ul>
+          <li><a href="bio.html">Biography</a></li>
+          <li><a href="Volunteer.html">More about me</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+          </li>
+        </ul>
+        </nav>
+
+      <!-- Main -->
+      <section id="main" style="text-align: left;">
+        <div class="container">
+          <!-- Content -->
+          <article class="box post">
+            <header>
+              <h1>
+                Loan application processing with Machine Learning
+              </h1>
+              <p>
+                Leveraging Machine Learning for improved decisions
+              </p>
+            </header>
+            <section>
+              <p>
+                Technology is increasingly revolutionizing the financial sector. One of the way’s AI is used, is in the loan application and approvel process. AI-powered systems revolutionize this process by offering significantly faster service. This results in lower operational costs for banks, as automation reduces the need for expensive manual labor. Additionally, AI systems are available around the clock, providing constant service for customers. This 24/7 availability ensures that applications can be submitted and processed at any time, greatly enhancing customer convenience. Furthermore, AI reduces the likelihood of errors that are often associated with human processing, leading to more accurate and reliable loan decisions. Because of these advantages I chose to pursue a project in this area.
+              </p>
+            </section>
+            <section>
+              <header>
+                <h2>Dataset</h2>
+              </header>
+              <p>
+                For this data analytics endevour the "Finance Loan Approval Prediction Data" dataset - <a href='https://www.kaggle.com/datasets/krishnaraj30/finance-loan-approval-prediction-data?select=test.csv'> available on Kaggle </a> - was used. The dataset is intended for building and testing predictive models that determine the likelihood of loan approval for applicants based on various financial and demographic factors. It includes a range of features such as gender, marital status, education, number of dependents, income levels, credit history, property area, and loan amount, among others. With one data set of around 600 rows, which includes loan application outcome and one non-labeled datset of 300 rows, with no loan application outcome, it it provides a significant number of data points. 
+              </p>
+            </section>
+            <section>
+              <header>
+                <h2>Data Preprocessing</h2>
+              </header>  
+              <p>
+                Several steps were performed to ensure a good fit of the Machine Learning Model. First missing values were dropped, to ensure that the ML algorithm can be fully run. Other methods of handling missing values were discussed, due to the concern of data loss. But with around 600 rows of data there was plenty to spare and it seemed to be the most robust approach. Then for the numerical columns descriptive statistics were obtained, which showed significant outliers. Therefore, the decision was made to drop all rows being outside the range of <i> mean - 3 * std </i> and <i> mean + 3 * std </i>. All of this preprocessing left 450 rows in the data frame, enough to train the ML models.
+              </p>
+              <img
+                src="images/loan-describe.png"
+                alt="Quality Prediction"
+                style="width: 700px; height: 400px;"
+              />
+            </section>
+            <section>
+              <header>
+                <h2>Limited Data Exploration in SQL</h2>
+              </header>
+              <p>
+                To get a better understanding one of the datasets was uploaded to an SQL server to easily explore some features of the dataset using group by. For example the conclusion emerged, that men in the data set have a higher average salary, despite being less likely to be a graduate.
+              </p>
+            </section>
+            <section> 
+              <header>
+                <h2>Machine Learning Models </h2>
+                <br>
+                <h3>Artifical Neural Network</h3>
+              </header>
+              <p>
+                The first approach was to employ a deep learning algorithm via Python and the tensorflow library to correctly predict if the applicant should receive a loan. Tensorflow and keras were chosen because of the wide variety of pre trained and easy to apply models. A snippet of the code can be seen below:
+                <pre style="background-color: #f7f7f7; border-left: 3px solid #f36d33; padding: 1em; margin: 10px; overflow: auto; font-family: 'Courier New', Courier, monospace; font-size: 10px;">
+                  <code class="language-python">                
+#the shape of the input layer has been set to match the input dimension specified earlier
+input_layer = Input(shape=(input_dim,))
+
+# specification of the hidden layer with 64 neurons (this was chosen arbitrarily)
+hidden_layer = Dense(64, activation='relu')(input_layer) 
+
+# Since binary classification is done, the output layer has a single neuron.
+#the output of this neuron will be a value between 0 and 1, representing the probability of the loan being approved
+output_layer = Dense(1, activation='sigmoid')(hidden_layer)  
+
+#the model is specified with the input set to the input layer and the output to the output layer
+model = Model(inputs=input_layer, outputs=output_layer) 
+
+# Below the model has been compiled  
+# binary crossentropy is chosen as a loss function for a binary classification problem
+#as optimizer adam is chosen because is is computationally efficient and has little memory requirements
+#the metric to be optimized in the model is accuracy, to achieve accurate predictions later on
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+#Training of the model
+#50 training runs (called epochs) are specified and batch size of 32
+#for both parameters different combinations were tried but non lead to better accuracy than this combo
+model.fit(X_train, y_train, epochs=50, batch_size=32, validation_split=0.2)
+</code>
+  </pre>
+  After training and testing the model the accuracy was measured and the following result was obtained. This means that the model gives accurate prediction 83% of the time.
+              </p>
+            <section> 
+              <header>
+                <h3>Logit Regression</h3>
+              </header>
+              <p>
+                With a Logit regression a simpler approach was also conducted to test it agianst the Deep Neural Network. To showcase a wider range of skills, this analysis was conducted with the programming language R. This was done on the basis of the already cleaned data from the previous approach. An extract of the code can be found below. The obtained accuracy was 80%.
+                <pre style="background-color: #f7f7f7; border-left: 3px solid #f36d33; padding: 1em; margin: 10px; overflow: auto; font-family: 'Courier New', Courier, monospace; font-size: 10px;">
+                  <code class="language-r">                
+split <- createDataPartition(y = loan_data$Loan_Status, p = 0.75, list = FALSE)
+train_data <- loan_data[split,]
+test_data <- loan_data[-split,]
+                    
+model <- glm(Loan_Status ~ Gender + Married + Dependents + Education + Self_Employed + ApplicantIncome + CoapplicantIncome + LoanAmount + Loan_Amount_Term + Credit_History + Property_Area_Rural + Property_Area_Semiurban + Property_Area_Urban, data = train_data, family = binomial)
+[1] "Accuracy:  0.803571428571429"
+                  </code> 
+                </pre>     
+              </p>
+            </section>
+            <section>
+              <header>
+                <h2>Results and predictions</h2>
+              </header>
+              <p>
+                As expected, the ANN showed superior accuracy to the simple regression function. However, the difference was quite small, which can probably be explained by the relatively small number of data points for training the ANN model. Based on the superior performance of the ANN compared to the simpler regression function, it was decided to use the deep learning algorithm to predict the outcome for the applications in the second table (test.csv) of the kaggle dataset. This was again done in Python. 
+              </p>
+            </section>
+            <ul class="actions">
+              <li>
+                <a
+                  href="https://github.com/lclehr/loan_applications"
+                  class="button alt"
+                  >Link to Github</a
+                >
+              </li>
+            </ul>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
