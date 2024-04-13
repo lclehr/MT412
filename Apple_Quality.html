@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Apple Quality</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Include the Prism.js Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
+    <!-- Include the Prism.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <!-- Include the Python language plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+    <!-- Include the R language plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-r.min.js"></script>
+  
+  </head>
+  <body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <section id="header">
+
+        <!-- Nav -->
+        <nav id="nav" style="margin-bottom: 20px;">
+          <ul>
+            <li class="current"><a href="index.html">Home</a></li>
+            <li>
+              <a href="#">Projects</a>
+              <ul>
+                <li><a href="LoanApplication.html">Loan Application with ANN</a>
+                <li><a href="Apple_Quality.html">Apple Quality</a></li>
+                <li><a href="CA259-1.html">Marketing Analytics - Personalities</a></li>
+                <li><a href="Financial_Projections.html">Amtagio Financial Analysis</a></li>
+                <li><a href="OECD.html">OECD Better Life - Power BI</a>
+          </li></li>
+              </ul>
+            </li>
+            <li><a href="#">Content</a>
+        <ul>
+          <li><a href="Blogposts.html">Blog Posts</a></li>
+          <li><a href="Media.html">Media</a></li>
+        </ul></li>
+            <li><a href="#">About me</a>
+        <ul>
+          <li><a href="bio.html">Biography</a></li>
+          <li><a href="Volunteer.html">More about me</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+          </li>
+        </ul>
+        </nav>
+
+      <!-- Main -->
+      <section id="main" style="text-align: left;">
+        <div class="container">
+          <!-- Content -->
+          <article class="box post">
+            <header>
+              <h1>
+                Apple Quality Analysis
+              </h1>
+              <p>
+                Predicting quality and differentiating varieties with modern data analytics
+              </p>
+            </header>
+            <section>
+              <header>
+                <h2>
+                  Aim of the Project
+                </h2>
+              </header>
+              <p>
+                The project aimed to analyse a <a href='https://www.kaggle.com/datasets/nelgiriyewithana/apple-quality'> Kaggle </a>dataset regarding apple quality, predicting the quality of apples using various attributes, and identifying distinct apple varieties based on the dataset. Through multiple stages of data analysis, the project explored the correlations, regressions, and clustering of apple characteristics to make predictions regarding apple quality and cluster the apples into three distinct varieties.
+              </p>
+            </section>
+            <section>
+              <header>
+                <h2>Dataset</h2>
+              </header>
+              <p>
+                The dataset, termed "Apple Quality," contains data on apples characterised by 7 numeric columns (size, weight, sweetness, crunchiness, juiciness, ripeness, and acidity) and 1 non-numeric column (quality classified as "good" or "bad"). Originally consisting of 4001 rows and 9 columns, adjustments were made by removing redundant or non-essential data. The dataset lacks raw data and has undergone an unknown transformation, which affects the scale of numeric values used. 
+              </p>
+            </section>
+            <section>
+              <header>
+                <h2>Data Familiarisation and Preparation</h2>
+              </header>  
+              <p>
+                After checking for missing values and discarding the ID column and one row holding the author's name, we familiarised ourselves with the dataset. We examined it to understand its distribution and prepare it for further analysis, including checks for normality. The following description table was obtained.
+              </p>
+              <img
+                src="images/ca259-2-describe.png"
+                alt="Quality Prediction"
+                style="width: 900px; height: auto;"
+              />
+              <p>
+                To check for normal distribution histograms were constructed for all the variables. Additionally skew and kurtosis were obtained. The result shows that all features are approximately normally distributed.
+              </p>
+              <img
+                src="images/ca259-2-hist.png"
+                alt="Quality Prediction"
+                style="width: 900px; height: auto;"
+              />
+            </section>
+            <section>
+              <header>
+                <h2>Correlation and Regression Analyses</h2>
+              </header>
+              <p>
+                Various correlations between the numeric features were explored to understand their relationships. For this a correlation matrix was build, as well as box whiskers plots showing the features distribution per quality. Regression analyses were conducted to predict apple quality and other attributes, using logistic regression for quality prediction and linear regression for other features. The logistic regression with the best result used all features as independent variables and the quality as dependent. The obtained accuracy was 72.8%.
+              </p>
+              <img
+              src="images/ca259-2-boxwhisker.png"
+              alt="Quality Prediction"
+              style="width: 900px; height: auto;"
+            />
+            <img
+                src="images/ca259-2-heatmap.png"
+                alt="Quality Prediction"
+                style="width: 900px; height: auto;"
+              />
+            </section>
+            <section> 
+              <header>
+                <h2>Clustering </h2>
+              </header>
+              <p>
+                K-means clustering was utilized to differentiate apple varieties based on their characteristics. First the optimal number of clusters was determined through the elbow method. The below graphic shows the inertia per number of clusters. Here a linechart is usually chosen as the best visualisation tool as it allows one to see the “elbow” determining the optimal number of clusters. According to the chart below, three clusters were used, denoting three distinct apple varieties as will be shown later on.
+              </p>
+              <img
+              src="images/ca259-2-elbow.png"
+              alt="Quality Prediction"
+              style="width: 900px; height: auto;"
+            /> 
+            <p>
+              Then the cluster centroids per feature were plotted to show the different profiles of the identified three apple varieties. Here a scatter plot was chosen, over a line chart, because it does not make sense to connect a point in the feature “Acidity” with a point representing the feature “Juiciness”. Using color coding for the different clusters enables one to easily read the flavour profiles of the different apple varietes. This plot clearly shows that the clusters have different features, showing different apple varieties.
+            </p>
+            <img
+              src="images/ca259-2-scatter.png"
+              alt="Quality Prediction"
+              style="width: 900px; height: auto;"
+            /> 
+            <p>
+              To get an even better understanding of the relationship between the clusters the following joint plots were crafted. These plots show every apple positioned on a grid comprised of two features, with their color denoting the apple variety. This shows the viewer, how the different apple varieties overlap in a certain feature. The distribution plots at the side are a very important addition as they show how the distribution for each apple variety is regarding the feature. This enables the viewer to get a more aggregate view of how the feature is distributed differently for each variety. 
+            </p>
+            <img
+              src="images/ca259-2-joinplot.png"
+              alt="Quality Prediction"
+              style="width: 900px; height: auto;"
+            /> 
+            <p>
+              After seeing these differences, t-tests were conducted. For every feature the apple variety with the centroid highest in this feature and the one with the centroid lowest ranked in this feature are were tested against one another. This proved statistically significant for all features, underlining that the apple varieties are not different merely by chance but systematically. 
+            </p>
+            </section>
+            <section> 
+              <header>
+                <h2>Conclusion</h2>
+              </header>
+              <p>
+                The project successfully identified three distinct apple varieties, each with unique characteristics that could be systematically differentiated using statistical tests. The logistic regression model predicted apple quality with a 72.8% accuracy, illustrating significant predictive capability based on size, sweetness, and other factors. The correlations and regression analyses revealed interesting relationships between the apple attributes, contributing to a deeper understanding of factors influencing apple quality.
+              </p>
+            </section>
+            <ul class="actions">
+              <li>
+                <a
+                  href="https://github.com/lclehr/apple_quality"
+                  class="button alt"
+                  >Link to Github</a
+                >
+              </li>
+            </ul>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
